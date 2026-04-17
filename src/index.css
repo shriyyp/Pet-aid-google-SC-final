@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  
+  --color-brand-bg: #0F172A;
+  --color-brand-card: #1E293B;
+  --color-brand-primary: #EA580C;
+  --color-brand-secondary: #10B981;
+  --color-brand-sos: #DC2626;
+  --color-brand-glow: #FBBF24;
+  --color-brand-critical: #991B1B;
+  --color-brand-warning: #FBBF24;
+  --color-brand-success: #22C55E;
+  --color-brand-text: #FFFFFF;
+  --color-brand-dim: #94A3B8;
+  --color-brand-inactive: #64748B;
+  --color-brand-border: rgba(255, 255, 255, 0.1);
+
+  --shadow-sos-hero: 0 0 40px rgba(220, 38, 38, 0.3), inset 0 0 20px #FBBF24;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+    background-image: radial-gradient(circle at top right, rgba(234, 88, 12, 0.05), transparent);
+  }
+}
+
+.high-density-header {
+  height: 64px;
+  @apply fixed top-0 w-full z-50 bg-brand-bg border-b border-brand-border px-6 flex items-center justify-between;
+}
+
+.high-density-nav {
+  height: 80px;
+  @apply fixed bottom-0 w-full bg-brand-card border-t-2 border-brand-primary px-10 grid grid-cols-5 z-50;
+}
+
+.sos-hero-card {
+  @apply bg-linear-to-br from-brand-sos to-[#7f1d1d] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between shadow-sos-hero border-2 border-brand-warning mb-1;
+}
+
+.rescue-card-dense {
+  @apply bg-brand-card rounded-2xl p-4 border border-brand-border flex gap-4 transition-all;
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background-color: #0F172A;
+  @apply rounded-2xl border border-brand-border;
+  background-image: radial-gradient(var(--color-brand-inactive) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  margin-top: 80px !important;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+  background-color: #1E293B !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: #1E293B !important;
+  color: white !important;
+}

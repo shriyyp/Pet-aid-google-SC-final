@@ -1,0 +1,9 @@
+{
+  "name": "PetAid",
+  "description": "A mobile web app for animal rescue, connecting finders with volunteers with emergency SOS features.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ],
+  "majorCapabilities": []
+}
